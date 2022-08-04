@@ -61,7 +61,7 @@ const char HTTP_ITEM[]             PROGMEM = "<div><a href='#p' onclick='c(this)
 // const char HTTP_ITEM[]            PROGMEM = "<div><a href='#p' onclick='c(this)'>{v}</a> {R} {r}% {q} {e}</div>"; // test all tokens
 
 const char HTTP_FORM_START[]       PROGMEM = "<form method='POST' action='{v}'>";
-const char HTTP_FORM_WIFI[]        PROGMEM = "<label for='s'>SSID</label><input id='s' name='s' maxlength='32' autocorrect='off' autocapitalize='none' placeholder='{v}'><br/><label for='p'>Password</label><input id='p' name='p' maxlength='64' type='password' placeholder='{p}'><input id='phide' type='checkbox' onclick='f()'><label for='phide'> Show Password</label>";
+const char HTTP_FORM_WIFI[]        PROGMEM = "<label for='s'>SSID</label><input id='s' name='s' maxlength='32' autocorrect='off' autocapitalize='none' placeholder='{v}'><br/><label for='p'>Password</label><input id='p' name='p' maxlength='64' type='password' placeholder='{p}'><input id='ph' type='checkbox' onclick='f()'><label for='ph'> Show Password</label>";
 const char HTTP_FORM_WIFI_END[]    PROGMEM = "";
 const char HTTP_FORM_OPTIONS_START[] PROGMEM = "<br/><input id='st' type='checkbox' onclick='togglediv()' /><label for='st'> Static IP configuration</label><div id='statconf' class='statconf'><br/><label>Note: leave it blank if you are using DHCP</label><br/><br/>";
 const char HTTP_FORM_OPTIONS_END[] PROGMEM = "</div><br/>";
