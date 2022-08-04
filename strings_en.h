@@ -31,7 +31,8 @@ const char HTTP_SCRIPT[]           PROGMEM = "<script>function c(l){"
 "p = l.nextElementSibling.classList.contains('l');"
 "document.getElementById('p').disabled = !p;"
 "if(p)document.getElementById('p').focus();};"
-"function f() {var x = document.getElementById('p');x.type==='password'?x.type='text':x.type='password';}"
+"function f() {var x = document.getElementById('p');x.type==='password'?x.type='text':x.type='password';};"
+"function togglediv(){el=document.getElementById('statconf');el.className=(el.className == 'statconf') ? '' : 'statconf'}"
 "</script>"; // @todo add button states, disable on click , show ack , spinner etc
 
 const char HTTP_HEAD_END[]         PROGMEM = "</head><body class='{c}'><div class='wrap'>"; // {c} = _bodyclass
@@ -60,8 +61,10 @@ const char HTTP_ITEM[]             PROGMEM = "<div><a href='#p' onclick='c(this)
 // const char HTTP_ITEM[]            PROGMEM = "<div><a href='#p' onclick='c(this)'>{v}</a> {R} {r}% {q} {e}</div>"; // test all tokens
 
 const char HTTP_FORM_START[]       PROGMEM = "<form method='POST' action='{v}'>";
-const char HTTP_FORM_WIFI[]        PROGMEM = "<label for='s'>SSID</label><input id='s' name='s' maxlength='32' autocorrect='off' autocapitalize='none' placeholder='{v}'><br/><label for='p'>Password</label><input id='p' name='p' maxlength='64' type='password' placeholder='{p}'><input type='checkbox' onclick='f()'> Show Password";
+const char HTTP_FORM_WIFI[]        PROGMEM = "<label for='s'>SSID</label><input id='s' name='s' maxlength='32' autocorrect='off' autocapitalize='none' placeholder='{v}'><br/><label for='p'>Password</label><input id='p' name='p' maxlength='64' type='password' placeholder='{p}'><input id='phide' type='checkbox' onclick='f()'><label for='phide'> Show Password</label>";
 const char HTTP_FORM_WIFI_END[]    PROGMEM = "";
+const char HTTP_FORM_OPTIONS_START[] PROGMEM = "<br/><input id='st' type='checkbox' onclick='togglediv()' /><label for='st'> Static IP configuration</label><div id='statconf' class='statconf'><br/><label>Note: leave it blank if you are using DHCP</label><br/><br/>";
+const char HTTP_FORM_OPTIONS_END[] PROGMEM = "</div><br/>";
 const char HTTP_FORM_STATIC_HEAD[] PROGMEM = "<hr><br/>";
 const char HTTP_FORM_END[]         PROGMEM = "<br/><br/><button type='submit'>Save</button></form>";
 const char HTTP_FORM_LABEL[]       PROGMEM = "<label for='{i}'>{t}</label>";
@@ -113,6 +116,7 @@ const char HTTP_STYLE[]            PROGMEM = "<style>"
 "body.invert .msg{color:#fff;background-color:#282828;border-top:1px solid #555;border-right:1px solid #555;border-bottom:1px solid #555;}"
 "body.invert .q[role=img]{-webkit-filter:invert(1);filter:invert(1);}"
 ":disabled {opacity: 0.5;}"
+".statconf{display:none;}"
 "</style>";
 
 #ifndef WM_NOHELP
